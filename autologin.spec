@@ -13,6 +13,11 @@ Group:		System/Base
 URL:		http://www.linux-easy.com/development/autologin/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	pam-devel automake autoconf
+
+# I know buildconflicts are bad, but if autoconf2.1 is installed, the
+# damn scripts insist on using it and not the newer one. -AdamW 2007/06
+
+BuildConflicts:	autoconf2.1
 License:	GPL
 Requires:	initscripts >= 5.15
 
