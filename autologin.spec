@@ -12,12 +12,6 @@ Patch0:		autologin-1.0.0-mdv.patch
 Group:		System/Base
 URL:		http://www.linux-easy.com/development/autologin/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-
-# I know buildconflicts are bad, but if autoconf2.1 is installed, the
-# damn scripts insist on using it and not the newer one. -AdamW 2007/06
-
-BuildConflicts:	autoconf2.1
-
 BuildRequires:	pam-devel automake autoconf >= 2.50
 License:	GPL
 Requires:	initscripts >= 5.15
@@ -33,7 +27,7 @@ Install autologin if you want to bypass the login screen.
 %patch0 -p1 -b .fred
 
 %build
-AUTOMAKE="automake --add-missing" autoreconf
+WANT_AUTOCONF="2.5" AUTOMAKE="automake --add-missing" autoreconf
 %configure
 %make
 
