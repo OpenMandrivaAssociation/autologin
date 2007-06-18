@@ -1,14 +1,18 @@
-Name:		autologin
+%define name	autologin
+%define version	1.0.0
+%define release	%mkrel 17
+
+Name:		%{name}
 Summary:	Automatically log in
-Version:	1.0.0
-Release:	%mkrel 16
+Version:	%{version}
+Release:	%{release}
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	startx.autologin
-Patch0:		autologin-1.0.0-mdk.patch.bz2
+Patch0:		autologin-1.0.0-mdv.patch
 Group:		System/Base
 URL:		http://www.linux-easy.com/development/autologin/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	pam-devel automake1.4
+BuildRequires:	pam-devel automake autoconf
 License:	GPL
 Requires:	initscripts >= 5.15
 
@@ -23,12 +27,11 @@ Install autologin if you want to bypass the login screen.
 %patch0 -p1 -b .fred
 
 %build
-export FORCE_AUTOCONF_2_5=1
-aclocal-1.4
+aclocal
 autoheader
-automake-1.4
+automake --add-missing
 autoconf
-%configure2_5x
+%configure
 %make
 
 %install
