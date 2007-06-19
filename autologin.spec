@@ -27,7 +27,7 @@ Install autologin if you want to bypass the login screen.
 %patch0 -p1 -b .fred
 
 %build
-WANT_AUTOCONF="2.5" AUTOMAKE="automake --add-missing" autoreconf
+FORCE_AUTOCONF_2_5 AUTOMAKE="automake --add-missing" autoreconf
 %configure
 %make
 
