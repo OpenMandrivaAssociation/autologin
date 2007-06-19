@@ -1,6 +1,6 @@
 %define name	autologin
 %define version	1.0.0
-%define release	%mkrel 19
+%define release	%mkrel 20
 
 Name:		%{name}
 Summary:	Automatically log in
