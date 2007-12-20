@@ -11,6 +11,7 @@ Source1:	startx.autologin
 Patch0:		autologin-1.0.0-mdv.patch
 Group:		System/Base
 URL:		http://www.linux-easy.com/development/autologin/
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	pam-devel automake autoconf >= 2.50
 License:	GPL
 Requires:	initscripts >= 5.15
