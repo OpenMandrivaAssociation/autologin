@@ -1,20 +1,16 @@
-%define name	autologin
-%define version	1.0.0
-%define release	%mkrel 22
-
-Name:		%{name}
 Summary:	Automatically log in
-Version:	%{version}
-Release:	%{release}
+Name:		autologin
+Version:	1.0.0
+Release:	%mkrel 23
+Group:		System/Base
+License:	GPL
+URL:		http://www.linux-easy.com/development/autologin/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	startx.autologin
 Patch0:		autologin-1.0.0-mdv.patch
-Group:		System/Base
-URL:		http://www.linux-easy.com/development/autologin/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	pam-devel automake autoconf >= 2.50
-License:	GPL
 Requires:	initscripts >= 5.15
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Autologin automatically logs in as the user specified in
@@ -32,12 +28,14 @@ FORCE_AUTOCONF_2_5=1 AUTOMAKE="automake --add-missing" autoreconf
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%{makeinstall_std}
-install -m755 %{SOURCE1} -D $RPM_BUILD_ROOT/usr/bin/startx.autologin
+rm -rf %{buildroot}
+
+%makeinstall_std
+
+install -m755 %{SOURCE1} -D %{buildroot}/usr/bin/startx.autologin
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,0755)
