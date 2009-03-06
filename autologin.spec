@@ -1,7 +1,7 @@
 Summary:	Automatically log in
 Name:		autologin
 Version:	1.0.0
-Release:	%mkrel 24
+Release:	%mkrel 25
 Group:		System/Base
 License:	GPL
 URL:		http://www.linux-easy.com/development/autologin/
