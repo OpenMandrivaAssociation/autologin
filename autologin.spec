@@ -26,7 +26,8 @@ Install autologin if you want to bypass the login screen.
 %patch1 -p0 -b .glibc28_fix
 
 %build
-FORCE_AUTOCONF_2_5=1 AUTOMAKE="automake --add-missing" autoreconf
+#FORCE_AUTOCONF_2_5=1 AUTOMAKE="automake --add-missing" autoreconf
+autoreconf -fiv
 %configure
 %make
 
