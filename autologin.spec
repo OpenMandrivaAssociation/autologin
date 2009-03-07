@@ -28,7 +28,7 @@ Install autologin if you want to bypass the login screen.
 %build
 #FORCE_AUTOCONF_2_5=1 AUTOMAKE="automake --add-missing" autoreconf
 autoreconf -fiv
-%configure
+%configure2_5x
 %make
 
 %install
